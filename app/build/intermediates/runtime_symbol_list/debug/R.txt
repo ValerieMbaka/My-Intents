@@ -2728,6 +2728,7 @@ int drawable ic_mtrl_chip_checked_black 0x7f070091
 int drawable ic_mtrl_chip_checked_circle 0x7f070092
 int drawable ic_mtrl_chip_close_circle 0x7f070093
 int drawable ic_search_black_24 0x7f070094
+int drawable icon_yangu_background 0x7f0700df
 int drawable m3_appbar_background 0x7f070095
 int drawable m3_avd_hide_password 0x7f070096
 int drawable m3_avd_show_password 0x7f070097
@@ -3489,6 +3490,9 @@ int layout select_dialog_singlechoice_material 0x7f0b0069
 int layout support_simple_spinner_dropdown_item 0x7f0b006a
 int mipmap ic_launcher 0x7f0d0000
 int mipmap ic_launcher_round 0x7f0d0001
+int mipmap icon_yangu 0x7f0d0002
+int mipmap icon_yangu_foreground 0x7f0d0003
+int mipmap icon_yangu_round 0x7f0d0004
 int plurals mtrl_badge_content_description 0x7f0e0000
 int string abc_action_bar_home_description 0x7f0f0000
 int string abc_action_bar_up_description 0x7f0f0001

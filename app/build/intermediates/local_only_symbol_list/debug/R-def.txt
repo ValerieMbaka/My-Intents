@@ -9,6 +9,7 @@ color teal_700
 color white
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable icon_yangu_background
 id mBtnCall
 id mBtnCamera
 id mBtnEmail
@@ -21,6 +22,9 @@ layout activity_main
 layout activity_website
 mipmap ic_launcher
 mipmap ic_launcher_round
+mipmap icon_yangu
+mipmap icon_yangu_foreground
+mipmap icon_yangu_round
 string app_name
 style Theme.MidMorningIntents
 xml backup_rules
