@@ -12,53 +12,55 @@ import androidx.core.content.ContextCompat
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var mSms:Button
-    lateinit var mEmail:Button
-    lateinit var mCamera:Button
-    lateinit var mShare:Button
-    lateinit var mMpesa:Button
-    lateinit var mCall:Button
-    lateinit var mWebsite:Button
+    lateinit var btnSms:Button
+    lateinit var btnEmail:Button
+    lateinit var btnCamera:Button
+    lateinit var btnShare:Button
+    lateinit var btnMpesa:Button
+    lateinit var btnCall:Button
+    lateinit var btnWebsite:Button
+    lateinit var btnMap:Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mSms = findViewById(R.id.mBtnSms)
-        mEmail = findViewById(R.id.mBtnEmail)
-        mCamera = findViewById(R.id.mBtnCamera)
-        mShare = findViewById(R.id.mBtnShare)
-        mMpesa = findViewById(R.id.mBtnMpesa)
-        mCall = findViewById(R.id.mBtnCall)
-        mWebsite = findViewById(R.id.mBtnWebsite)
+        btnSms = findViewById(R.id.mBtnSms)
+        btnEmail = findViewById(R.id.mBtnEmail)
+        btnCamera = findViewById(R.id.mBtnCamera)
+        btnShare = findViewById(R.id.mBtnShare)
+        btnMpesa = findViewById(R.id.mBtnMpesa)
+        btnCall = findViewById(R.id.mBtnCall)
+        btnWebsite = findViewById(R.id.mBtnWebsite)
+        btnMap = findViewById(R.id.mBtnMap)
         // Set onClick listeners to the buttons
-        mSms.setOnClickListener {
+        btnSms.setOnClickListener {
             val uri: Uri = Uri.parse("smsto:0722916304")
             val intent = Intent(Intent.ACTION_SENDTO, uri)
             intent.putExtra("sms_body", "Hello there...")
             startActivity(intent)
         }
-        mEmail.setOnClickListener {
+        btnEmail.setOnClickListener {
 
             val emailIntent = Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "innocentshibutu@gmail.com", null))
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "HOLA!")
             emailIntent.putExtra(Intent.EXTRA_TEXT, "Dear dad, how are you...")
             startActivity(Intent.createChooser(emailIntent, "Send email..."))
         }
-        mCamera.setOnClickListener {
+        btnCamera.setOnClickListener {
             val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(takePictureIntent, 1)
         }
-        mShare.setOnClickListener {
+        btnShare.setOnClickListener {
             val shareIntent = Intent(Intent.ACTION_SEND)
             shareIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             shareIntent.type = "text/plain"
             shareIntent.putExtra(Intent.EXTRA_TEXT, "Hey, download this app on https://www!")
             startActivity(shareIntent)
         }
-        mMpesa.setOnClickListener {
+        btnMpesa.setOnClickListener {
             val simToolKitLaunchIntent = applicationContext.packageManager.getLaunchIntentForPackage("com.android.stk")
             simToolKitLaunchIntent?.let { startActivity(it) }
         }
-        mCall.setOnClickListener {
+        btnCall.setOnClickListener {
             val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0722916304"))
             if (ContextCompat.checkSelfPermission(this@MainActivity, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(
@@ -70,9 +72,13 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-        mWebsite.setOnClickListener {
+        btnWebsite.setOnClickListener {
             val tembea = Intent(this@MainActivity, WebsiteActivity::class.java)
             startActivity(tembea)
+        }
+        btnMap.setOnClickListener {
+            val ramani = Intent(this, MapsActivity::class.java)
+            startActivity(ramani)
         }
     }
 }
